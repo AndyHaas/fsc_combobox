@@ -7,7 +7,7 @@
                         <abbr class="slds-required" title="required" if:true={required}>*</abbr>
                         {computedLabel}
                         <template if:true={fieldLevelHelp}>
-                            <lightning-helptext content={fieldLevelHelp}></lightning-helptext>
+                            <lightning-helptext class="slds-m-left_x-small customIcon" content={fieldLevelHelp}></lightning-helptext>
                         </template>
                     </p>
                 </template>
@@ -42,27 +42,35 @@
                             </div>
                         </template>
                         <template if:false={showSelectedValue}>
-                            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_group-right"
+                            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_left-right"
                                 role="none">
-                                <div class="slds-input__icon-group slds-input__icon-group_right">
-                                    <template if:true={isLoading}>
-                                        <div role="status"
-                                            class="slds-spinner slds-spinner_brand slds-spinner_x-small slds-input__spinner">
-                                            <span class="slds-assistive-text">Loading</span>
-                                            <div class="slds-spinner__dot-a"></div>
-                                            <div class="slds-spinner__dot-b"></div>
-                                        </div>
-                                    </template>
-                                    <template if:true={rightIcon}>
-                                        <lightning-icon icon-name={rightIcon} size="xx-small"
-                                            class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default slds-text-link_reset"
-                                            aria-hidden="true"></lightning-icon>
-                                    </template>
-                                </div>
+
+                                <template if:true={leftIcon}>
+                                    <lightning-icon icon-name={leftIcon} size="xx-small"
+                                        class="slds-icon slds-input__icon slds-input__icon_left"
+                                        aria-hidden="true"></lightning-icon>
+                                </template>
+
+
+
                                 <input type="text" placeholder={placeholder} onclick={handleSearchClick}
                                     onfocus={handleSearchFocus} onblur={handleSearchBlur} oninput={handleSearchChange}
                                     onkeydown={handleSearchKeydown} disabled={isInputDisabled} class="slds-input"
                                     required />
+
+                                <template if:true={isLoading}>
+                                    <div role="status"
+                                        class="slds-spinner slds-spinner_brand slds-spinner_x-small slds-input__spinner">
+                                        <span class="slds-assistive-text">Loading</span>
+                                        <div class="slds-spinner__dot-a"></div>
+                                        <div class="slds-spinner__dot-b"></div>
+                                    </div>
+                                </template>
+                                <template if:true={rightIcon}>
+                                    <lightning-icon icon-name={rightIcon} size="xx-small"
+                                        class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default slds-text-link_reset"
+                                        aria-hidden="true"></lightning-icon>
+                                </template>
                             </div>
                             <div class="slds-form-element__help">{errorMessage}</div>
                         </template>

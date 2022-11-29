@@ -23,6 +23,7 @@ export default class OptionSelector extends LightningElement {
     @api noMatchString = 'No matches found';
     @api valueDelimiter = ',';
     @api rightIcon = 'utility:down';    // Icon to be displayed on the right side of the search input
+    @api leftIcon = 'utility:search';   // Icon to be displayed on the left side of the search input
     @api groupingTextClass = 'slds-listbox__option-header';
     @api fieldLevelHelp;
     @api errorMessage;
